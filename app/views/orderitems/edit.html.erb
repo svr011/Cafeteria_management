@@ -1,0 +1,29 @@
+<%= form_for @item do |f| %>
+  <div class="Additem">
+  <p class="update-heading">
+        <%= f.label 'Item Name ' %>
+        </p>
+        <br>
+        <%= f.text_field :menu_item_name ,
+                            class:"field",
+                          disabled:true %>
+  </p>
+  </div>
+  <p class="update-heading">
+        <%= f.label 'Item Cost' %>
+     <br>
+     <%= f.text_field :menu_item_cost ,
+                         class:"field",
+                         disabled:true%>
+  </p>
+  <br>
+  <p class="update-heading">
+              <%= f.label 'Item Quantity' %>
+              <br>
+              <%= f.number_field :quantity,
+                             class:"field",
+                             min:1,max:20%>
+  </p>
+  <br>
+  <%= f.submit "Update" ,class:"Updateitem-Button"%>
+<% end %>

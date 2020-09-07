@@ -1,0 +1,109 @@
+ <section class="TodoSection">
+  <div class="TodoSectionTitle" display: flex>
+    <p class="TodoSectionTitle-text"><%=section_title%></p>
+    <p class="TodoSectionTitle-remainingCount">
+    </p>
+  </div>
+  <ul>
+        <%@bill_amount=0%>
+        <% if Orderitem.count!=0%>
+                  <% items.each do |item|%>
+                        <li class="OrderItem">
+                           <label class="OrderItem-container">
+                           <% if item.quantity!=nil %>
+                              <%   if item.quantity>=1  %>
+                                      <%@bill_amount= @bill_amount + item.menu_item_cost * item.quantity%>
+                                      <div class="OrderMenus">
+                                        <table class="tableformat">
+                                          <tr>
+                                            <td>
+                                              <p class="Ordereditemname">Item Name: <%=item.menu_item_name%></p>
+                                            </td>
+                                            <td>
+                                              <p class="Ordereditemquantity">Quantity : <%=item.quantity%> </p>
+                                            </td>
+                                            <td>
+                                              <p class="Ordereditemcost">Total Cost :  Rs.<%=item.menu_item_cost * item.quantity%> /-</p>
+                                            </td>
+                                            <td>
+                                                <div class="Updatedetailsoptions">
+                                                    <%= form_with(url: "/orderitems/#{item.id}",method: "DELETE") do %>
+                                                      <input type='image'
+                                                             class="Ordered-delete"
+                                                             src="t.png"
+                                                             alt="Delete"
+                                                             height="20"
+                                                             width="20">
+                                                             <%="   Delete"%>
+                                                      </td>
+                                                      <td>
+                                                            <%=link_to "Update Quantity"  ,edit_orderitem_path(item),class:"updatequantity"%>
+                                                    </td>
+                                                   <%end%>
+                                                  </div>
+                                            </tr>
+                                        </table>
+                                      </div>
+                              <%end%>
+                            <%end%>
+                            <%if item.quantity=="nil" %>
+                                <p class="Orderquantityflash">
+                                  <%=flash[:error]= "Quantity cannot be nil and less than 1 "%>
+                                </p>
+                            <%end%>
+                            <%end%>
+                          </li>
+          <%else%>
+                <p class="Processingorders"> Orders confirmed previously would be under process/ The Cart cannot be Empty</p>
+                <img src="/ce.jpg" class="ImageCE">
+          <%end%>
+        <p>----------------------------------------------</p>
+        <div class="Billamount">
+                  <p class="Outer">Total bill amount :<p class="Bill"> Rs.<%= @bill_amount%>/-</p>
+                  </p>
+        </div>
+        </label>
+        <div class="OrderMenu">
+            <%if Orderitem.count==0%>
+                  <%= form_with(url: "/billitems",method: "POST") do %>
+                           <input type='button'
+                                  value="Confirm Order"
+                                  class="Processorderdisabled"
+                                  alt="Add items"
+                                  disabled="true"
+                                  visibility:hidden
+                                  onclick="this.form.submit()">
+                  <%end%>
+                  <%= form_with(url: "/menuitems",method: "GET") do %>
+                            <input type='button'
+                                   value="Order More Items "
+                                   alt="RedirectBack"
+                                   class ="Buttonredirect"
+                                   onclick="this.form.submit()">
+                   <%end%>
+                  <%= form_with(url: "/orders",method: "GET") do %>
+                            <input type='button'
+                                   value="View your Order Status if any ?"
+                                   alt="RedirectBack"
+                                   class ="Buttonredirect"
+                                   onclick="this.form.submit()">
+                   <%end%>
+            <%else%>
+                 <%= form_with(url: "/billitems",method: "POST") do %>
+                            <input type='button'
+                                   value="Confirm Order"
+                                   class="Processorder"
+                                   alt="Add items"
+                                   onclick="this.form.submit()">
+                  <%end%>
+                  <%= form_with(url: "/menuitems",method: "GET") do %>
+                            <input type='button'
+                                    value="Order More Items "
+                                    alt="RedirectBack"
+                                    class ="Buttonredirect"
+                                    onclick="this.form.submit()">
+                   <%end%>
+            <%end%>
+        </div>
+    </ul>
+</section>

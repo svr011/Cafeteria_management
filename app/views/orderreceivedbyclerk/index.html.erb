@@ -1,0 +1,16 @@
+<main class="TodoPageMain">
+    <article>
+      <%= link_to "Sign-Out",destroy_session_path,method: "delete",class:"Signoutdelete"%>
+       <%= form_with(url: "/usermain",method: "GET") do %>
+                     <input type='button'  value="Make an Offline Order" class="Processorder"
+                     alt="Add items" onClick="this.form.submit()"   >
+                     <%end%>
+       <h1 class="Additems-title">Orders Of the Day</h1>
+         <%= render partial:"orderclerk-section",locals: {
+                    section_title: "Ordered Items Count : ",
+                    items: Order.all
+                    }%>
+    <h3 class="Fooditem">Have a delicious food</h3>
+    </article>
+
+</main>

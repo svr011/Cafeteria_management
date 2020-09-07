@@ -1,0 +1,46 @@
+<main class="TodoPageMain">
+    <article>
+       <%= link_to "Sign-Out",destroy_session_path,method: "delete",class:"Signoutdelete"%>
+        <% if @userrole=="Owner" %>
+          <%= form_with(url: "/ownerhome",method: "GET") do %>
+                     <input type='button'
+                            value="Back To Owner Page"
+                            class="Processorder"
+                            alt="Add items"
+                            onClick="this.form.submit()"   >
+          <%end%>
+      <%end%>
+      <% if @userrole=="Clerk" %>
+          <%= form_with(url: "/orderreceivedbyclerk",method: "GET") do %>
+                     <input type='button'
+                            value="Back To Clerk Page"
+                            class="Processorder"
+                            alt="Add items"
+                            onClick="this.form.submit()"   >
+          <%end%>
+      <%end%>
+   <% if @userrole=="Customer" %>
+          <%= form_with(url: "/usermain",method: "GET") do %>
+                     <input type='button'
+                            value="Back To Home"
+                            class="Processorder"
+                            alt="Add items"
+                            onClick="this.form.submit()"   >
+          <%end%>
+      <%end%>
+
+       <h1 class="Additems-title">Your Ordered Items List</h1>
+       <%= render partial:"order-section1",locals: {
+                    section_title: "Previous Orders :",
+                    items: @orderitemes.all,
+                    show_billamount:false
+              }%>
+        <%= render partial:"order-section",locals: {
+                    section_title: " Today's Orders :  ",
+                    items: @orderitemes.all,
+                    show_billamount:true
+              }%>
+
+    <h3 class="Fooditem">Have a delicious food</h3>
+  </article>
+</main>

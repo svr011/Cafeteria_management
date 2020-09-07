@@ -1,0 +1,10 @@
+<main class="TodoPageMain">
+    <article>
+       <h1 class="Additems-title">Select the items</h1>
+         <%= render partial:"menuitem-section",locals: {
+                    section_title: "Available Items",
+                    items: Menuitem.all
+                    }%>
+    <h3 class="Fooditem">Have a delicious food</h3>
+    </article>
+</main>

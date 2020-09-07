@@ -1,0 +1,106 @@
+.TodoPage-title {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #453c52;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.TodoSection-title {
+  font-size: 20px;
+  line-height: 1.4;
+  color: #453c52;
+}
+.AddMenu {
+  display: flex;
+  height: 40px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+.TodoSection-todo {
+  font-size: 20px;
+  line-height: 1.2;
+  margin-left: 32px;
+  color: #453c52;
+}
+.TodoSection {
+  margin-bottom: 20px;
+}
+.TodoSectionTitle {
+  display: flex;
+  color: #453c52;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.dropdown {
+  color: teal;
+}
+.Food {
+  font-size: 32px;
+  text-align: center;
+  margin-top: 300px;
+  font-style: inherit;
+  font-family: cursive;
+  font-display: flex;
+}
+.AddTodo-Button {
+  padding: 8px 24px;
+  font-size: 14px;
+  color: white;
+  background-color: green;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-left: 20px;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+.TodoItem {
+  font-size: 14px;
+  margin-left: 8px;
+  margin-bottom: 6px;
+  color: #453c52;
+}
+.TodoItem-container {
+  display: flex;
+  padding: 2px 8px;
+  align-items: center;
+}
+.TodoItem-container:hover {
+  background-color: #f1edf7;
+}
+.TodoItem-delete > img {
+  width: 16px;
+}
+.TodoItem-delete {
+  visibility: hidden;
+  margin-left: 8px;
+}
+.TodoItem-container:hover .TodoItem-delete {
+  visibility: visible;
+}
+.TodoItem-checkbox {
+  width: 16px;
+  height: 16px;
+}
+.TodoItem-dueDate {
+  font-size: 10px;
+  color: blue;
+  margin-left: 10px;
+}
+.TodoSectionTitle-remainingCount {
+  margin-left: 10px;
+}
+
+.TodoSectionTitle-text {
+  font-size: 16px;
+  margin-right: 8px;
+  line-height: 1.4;
+  font-weight: bold;
+}
+.strikethrough {
+  text-decoration: line-through;
+}

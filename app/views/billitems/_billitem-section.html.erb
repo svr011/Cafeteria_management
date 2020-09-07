@@ -1,0 +1,88 @@
+  <section class="TodoSection">
+          <div class="TodoSectionTitle" display: flex>
+                <p class="TodoSectionTitle-text">
+                                    <%=section_title%>
+                </p>
+                <p class="TodoSectionTitle-remainingCount"></p>
+          </div>
+  <ul>
+        <%@bill_amount=0%>
+        <% if Billitem.count!=0%>
+                      <%n=0%>
+                      <% items.each do |item|%>
+                                <li class="OrderItem">
+                                       <label class="OrderItem-container">
+                                              <div class="OrderMenu">
+                                                 <table class="tableformat">
+                                                      <%@bill_amount= @bill_amount + item.item_cost*item.quantity%>
+                                                      <tr>
+                                                          <td>
+                                                              <%n=n+1%>
+                                                                      <p class="Ordereditemname">
+                                                                          <%=n%> Item Name : <%=item.item_name%>
+                                                                      </p>
+                                                          </td>
+                                                          <td>
+                                                              <p class="Ordereditemcost"> Item Cost
+                                                                    (<%=item.quantity%>*<%=item.item_cost%> ) : Rs <%=item.item_cost * item.quantity%>/-</p>
+                                                          </td>
+                                                          <td>
+                                                              <p>Ordered At : <%=item.ordertime%>
+                                                              </p>
+                                                          </td >
+                                                        </tr>
+                                                  </table>
+                                              </div>
+                        <%end%>
+                                </li>
+          <%else%>
+                    <p class="Processingorders">
+                               Yippeee.....! Your Orders are under process.Watch status for more updates
+                    </p>
+          <%end%>
+    <p>----------------------------------------------</p>
+      <div class="Billamount">
+            <p class="Outer">
+              Total bill amount :
+              <p class="Bill"> Rs.<%= @bill_amount%>/-
+              </p>
+            </p>
+      </div>
+    </label>
+     <div class="OrderMenu">
+            <%if Billitem.count != 0 %>
+                    <%= form_with(url: "/orders",method: "POST") do %>
+                                <input type='button'
+                                       value="Add Items To Your Orders List"
+                                       class="buttonglow"
+                                       alt="Add items"
+                                       onClick="this.form.submit()">
+                    <%end%>
+                   <%= form_with(url: "/orderitems",method: "GET") do %>
+                                <input type='button'
+                                       value="Back"
+                                       class="Processorder"
+                                       alt="Add items"
+                                       onClick="this.form.submit()"   >
+                     <%end%>
+              <%else%>
+                     <%= form_with(url: "/orders",method: "POST") do %>
+                                <input type='button'
+                                       value="Orders Entered"
+                                       class="Processorderdisabled"
+                                       alt="Add items" disabled="true"
+                                       onClick="this.form.submit()">
+                      <%end%>
+                      <%= form_with(url: "/orders",method: "GET") do %>
+                                <input type='button'
+                                       value="View Your Order Status"
+                                       class="buttonglow"
+                                       alt="Add items"
+                                       onClick="this.form.submit()" >
+                       <%end%>
+
+            <%end%>
+
+
+
+    </section>

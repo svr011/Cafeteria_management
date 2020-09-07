@@ -1,0 +1,19 @@
+<main class="TodoPageMain">
+    <article>
+    <%= link_to "Sign-Out",destroy_session_path,method: "delete",class:"Linker"%>
+       <h1 class="Additems-title">List of Items Purchased</h1>
+        <%if Orderitem.count!=0%>
+            <%= render partial:"ordereditem-section",locals: {
+                        section_title: "Ordered Items",
+                        items: Orderitem.all
+                        }%>
+        <%else%>
+                    <%flash[:error]="We are Sorry. Empty Orders will not be Processed"%>
+                    <%= render partial:"ordereditem-section",locals: {
+                        section_title: "Ordered Items",
+                        items: Orderitem.all
+                        }%>
+        <%end%>
+        <h3 class="Fooditem">Have a delicious food</h3>
+    </article>
+</main>

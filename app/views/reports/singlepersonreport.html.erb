@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<section >
+  <ul>
+    <%@bill_amount=0%>
+    <%n=0%>
+       <li>
+           <%@userorderitems = @user.orders%>
+            <p>User Id :  <%=@user.id%></p>
+            <p>User Name: <%=@user.first_name%> <%=@user.last_name%></p>
+            <p>Total Ordered items:<%=@userorderitems.count%></p>
+            <%= form_with(url: "/reports/#{@user.id}", method: "PATCH", class:"AddTodo") do %>
+                <div class="Additem">
+                      <%=label_tag 'FROM   ',
+                              nil,
+                              class: 'Additemlabel'%>
+                      <%= date_field_tag(:from_date, "Todo's Date",
+                                          class:"AddTodo-Date",
+                                          :required => true ) %>
+                      <%=label_tag 'To  ', nil, class: 'Additemlabel'%>
+                      <%= date_field_tag(:to_date, "Todo's Date",
+                                          class:"AddTodo-Date",
+                                          :required => true) %>
+                      <%= button_tag('View Orders',
+                                      type:"Submit",
+                                      class:"AddTodo-Button")%>
+                </div>
+           <%end%>
+           <%= form_with(url: "/reports",method: "GET") do %>
+                        <input type='button'
+                               value="Back"
+                               class="Processorder"
+                               alt="Add items"
+                               onclick="this.form.submit()">
+            <%end%>
+            <% @userorderitems.each do |item|%>
+              <%n=n+1%>
+              <p><%=n%>. Item Name : <%=item.item_name%></p>
+              <button type="button"
+                      class="collapsible">View Order Details
+              </button>
+              <div class="content">
+                        <p>Item Name              : <%=item.item_name%></p>
+                        <p>Item Cost( 1 Item)     : <%=item.item_cost%></p>
+                        <p>Quantity Ordered       : <%=item.quantity%></p>
+                        <p>Ordered On             : <%=item.order_time.in_time_zone('Chennai')%></p>
+                        <p>Delivered at           : <%=item.delivered_at%></p>
+                        <p>User Id               : <%=item.user_id%></p>
+                        <p>Total Order Cost       : <%= item.item_cost * item.quantity%>
+                        <p>Status                 :
+                        <%if item.confirmed%>
+                        <%="Confirmed"%>
+                        <%else%>
+                          <p> <%="Pending"%></p>
+                          <%end%>
+              </div>
+              <%@bill_amount= @bill_amount + item.item_cost * item.quantity%>
+            <%end%>
+       </li>
+    </ul>
+  </section>
+ <div class="Billdetails">
+     <div class="Billamount"><p class="Outer">Total bill amount :<p class="Bill"> Rs.<%= @bill_amount%>/-</p> </p></div>
+</div>
+<script>
+                var coll = document.getElementsByClassName("collapsible");
+                var i;
+
+                for (i = 0; i < coll.length; i++) {
+                  coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                      content.style.display = "none";
+                    } else {
+                      content.style.display = "block";
+                    }
+                  });
+                }
+</script>
+
+</body>
+</html>

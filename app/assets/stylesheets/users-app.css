@@ -1,0 +1,56 @@
+.Newusers-title {
+  margin-bottom: 20px;
+  font-weight: lighter;
+  color: teal;
+  padding: 10px;
+  justify-content: center;
+  text-align: center;
+  color: antiquewhite;
+}
+.Form-section {
+  margin-bottom: 20px;
+}
+.form-data {
+  font-size: 16px;
+  padding: 8px;
+  border-color: lightblue;
+  border-radius: 5px;
+}
+.FormInput-label {
+  color: yellow;
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-weight: lighter;
+}
+.form-submit {
+  font-size: 20px;
+  padding: 10px;
+  color: white;
+  background-color: green;
+  border: 0;
+  border-radius: 4px;
+}
+.checker {
+  display: flex;
+  justify-items: stretch;
+}
+.Owner {
+  margin-top: 20px;
+  color: grey;
+}
+.newuser {
+  background-repeat: no-repeat;
+  background-position: center;
+  background: rgba(0, 0, 0, 0);
+}
+.Info {
+  color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  text-shadow: bisque;
+  text-rendering: optimizeSpeed;
+  text-align: center;
+}

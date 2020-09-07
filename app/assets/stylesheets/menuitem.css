@@ -1,0 +1,106 @@
+.flex {
+  display: flex;
+  justify-content: space-between;
+  font-display: flex;
+  align-items: stretch;
+  margin-bottom: 16px;
+}
+.menuitem-checkbox {
+  height: 16px;
+  width: 16px;
+}
+.menuitem-label {
+  padding-left: 10px;
+  font-size: 16px;
+  color: chocolate;
+  font-family: cursive;
+}
+.Adddescription-Text {
+  padding-right: 10px;
+  justify-self: flex-end;
+
+  border-color: turquoise;
+  border-radius: 5px;
+  height: 20px;
+}
+.AddMenuitem-Button {
+  padding: 8px 24px;
+  font-size: 14px;
+  color: white;
+  background-color: green;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-left: 20px;
+  margin-top: 100px;
+  margin-bottom: 80px;
+}
+.Menu {
+  color: grey;
+  font-size: 16px;
+  display: flex;
+  justify-content: stretch;
+}
+.ItemCost {
+  color: green;
+  margin-left: 5px;
+  margin-top: 20px;
+  padding-left: 40px;
+  padding-right: 10px;
+}
+.Menuadditem-Button {
+  padding: 8px 24px;
+  font-size: 14px;
+  color: white;
+  background-color: green;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-top: 40px;
+}
+.Menuremoveitem-Button {
+  padding: 8px 24px;
+  font-size: 14px;
+  color: brown;
+  background-color: skyblue;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+.Buttons {
+  display: flex;
+}
+.MINUS {
+  margin-left: 10px;
+}
+.Item-description {
+  color: darkgray;
+  margin-left: 40px;
+  font-style: oblique;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.Menuitemslistmain {
+  border: 5px solid gray;
+  background-image: image-set("idli.jpg");
+}
+.Container {
+  display: flex;
+  font-display: center;
+  align-items: stretch;
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  background-color: lightyellow;
+}
+.Menuitemslist {
+  margin-bottom: 200px;
+  justify-content: center;
+  width: 450px;
+  padding: 10px;
+  margin-left: 500px;
+}
+.Menu-Buttons {
+  display: flex;
+  margin-left: 450px;
+  justify-items: center;
+  justify-items: stretch;
+}

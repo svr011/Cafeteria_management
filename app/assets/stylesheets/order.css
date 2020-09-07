@@ -1,0 +1,15 @@
+.Pending {
+  margin-left: 20px;
+  padding-left: 20px;
+  background-color: lightslategray;
+  border: maroon;
+  border-radius: 5px;
+}
+
+.Confirmed {
+  margin-left: 20px;
+  padding-left: 20px;
+  background-color: lightgreen;
+  border: maroon;
+  border-radius: 5px;
+}

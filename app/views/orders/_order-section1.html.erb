@@ -1,0 +1,48 @@
+ <section class="TodoSection">
+  <div class="TodoSectionTitle" display: flex>
+    <p class="TodoSectionTitle-text"><%=section_title%></p>
+    <p class="TodoSectionTitle-remainingCount">
+
+    </p>
+  </div>
+  <ul>
+  <%@bill_amount=0%>
+  <%n=0%>
+    <% items.each do |item|%>
+       <li class="OrderItem">
+         <label class="OrderItem-container">
+         <div class="OrderMenu">
+            <% if item.order_time.strftime("%m/%d/%Y") <  Date.today.strftime("%m/%d/%Y")%>
+                <% if show_billamount%>
+                      <%@bill_amount= @bill_amount + item.item_cost * item.quantity%>
+                <%end%>
+                <%n=n+1%>
+                <table class="tableformats">
+                        <tr>
+                          <td>
+                            <p class="Ordereditemname">  <%=n%>. Name: <%=item.item_name%>
+                            </p>
+                          </td>
+                          <td>
+                              <p class="Ordereditemcost">Cost (<%=item.quantity%>*<%=item.item_cost%> ):Rs <%=item.item_cost * item.quantity%>/-</p>
+                          </td>
+                      </div>
+                          <td>
+                              <p>Ordered On :   <%=item.order_time.in_time_zone('Chennai')%>
+                              </p>
+                          </td>
+                      <td>
+                          <%if !item.confirmed%>
+                          <p class="Pending">Status: Pending </p>
+                          <%else%>
+                          <p class="Confirmed">Status: Confirmed </p></p>
+                    <%end%>
+                  </td>
+                  <tr>
+                </table>
+            <%end%>
+    <%end%>
+  </li>
+  </label>
+</ul>
+</section>

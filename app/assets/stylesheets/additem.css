@@ -1,0 +1,154 @@
+.Additem-Name {
+  border-color: skyblue;
+  border-width: 10px;
+  border-radius: 5px;
+  color: black;
+  margin-bottom: 10px;
+  height: 40px;
+  padding-left: 20px;
+  margin-left: 45px;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+}
+.Additem-description {
+  border-color: skyblue;
+  border-width: 10px;
+  border-radius: 5px;
+  color: black;
+  margin-bottom: 10px;
+  height: 40px;
+  padding-left: 20px;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+}
+.Additem-cost {
+  border-color: skyblue;
+  border-width: 10px;
+  border-radius: 5px;
+  color: black;
+  margin-bottom: 10px;
+  height: 40px;
+  padding-left: 20px;
+  margin-left: 55px;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+}
+.Additems-title {
+  align-self: center;
+  color: slategrey;
+  border-color: orangered;
+  text-align: center;
+
+  font-family: sans-serif;
+
+  margin-right: 40px;
+}
+.Additemlabel {
+  color: orangered;
+  font-weight: 500;
+  font-size: 20px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.Additem-Button {
+  padding: 8px 24px;
+  font-size: 14px;
+  color: white;
+  background-color: green;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-top: 40px;
+}
+.Updateitem-Button {
+  padding: 8px 24px;
+  font-size: 14px;
+  color: white;
+  background-color: green;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-top: 40px;
+  margin-left: 50px;
+}
+.Fooditem {
+  align-self: center;
+  color: slategrey;
+  border-color: orangered;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-right: 40px;
+  padding-left: 20px;
+}
+
+.AddItem-container:hover {
+  background-color: #f1edf7;
+}
+.AddItem-delete > img {
+  width: 16px;
+}
+.AddItem-delete {
+  visibility: hidden;
+  margin-left: 8px;
+}
+.AddItem-container:hover .AddItem-delete {
+  visibility: visible;
+}
+.AddItem-container {
+  display: flex;
+  padding: 2px 8px;
+  align-items: center;
+  justify-items: flex-start;
+  justify-content: space-between;
+  color: teal;
+}
+.Flash {
+  color: orangered;
+  background-color: lightblue;
+  border-radius: 5px;
+  text-align: center;
+}
+.update-heading {
+  color: teal;
+  font-style: normal;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font: outline;
+  font-display: flex;
+}
+.field {
+  border-color: lightgreen;
+  border-width: 10px;
+  border-radius: 5px;
+  color: black;
+  margin-bottom: 10px;
+  height: 40px;
+  padding-left: 20px;
+  margin-left: 55px;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+}
+.text {
+  color: blueviolet;
+}
+.Additem-forward {
+  margin-left: 400px;
+  margin-right: 500px;
+}
+.AddItem-Goback {
+  color: teal;
+  font-size: 20px;
+  margin-left: 300px;
+}
+.tableinfo {
+  table-layout: fixed;
+  width: 100%;
+}
+#example1 {
+  background-image: url(idli.jpg);
+  background-position: right bottom, left top;
+  background-repeat: no-repeat, repeat;
+  padding: 15px;
+}
+.Addmain {
+  margin-left: 600px;
+}
+.Signout {
+  margin-left: 1300px;
+}

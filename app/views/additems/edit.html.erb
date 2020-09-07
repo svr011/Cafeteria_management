@@ -1,0 +1,20 @@
+`<%= form_for @item do |f| %>
+                  <%= link_to "Sign-Out",destroy_session_path,method: "delete"%>
+                              <div class="Additem">
+                                          <p class="update-heading"> <%= f.label 'Item Name ' %></p>
+                                          <br>
+                                          <%= f.text_field :item_name ,class:"field"%> </p>
+                              </div>
+                              <p class="update-heading">
+                                          <%= f.label 'Item Description' %>
+                              </p>
+                              <br>
+                              <%= f.text_area :item_description ,class:"field"%>
+                              <br>
+                              <p class="update-heading">
+                                                      <%= f.label 'Item Cost' %><br>
+                                                      <%= f.text_field :item_cost ,class:"field"%>
+                              </p>
+                              <br>
+                  <%= f.submit "Update" ,class:"Updateitem-Button"%>
+<% end %>

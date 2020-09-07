@@ -1,0 +1,26 @@
+ <section class="TodoSection">
+  <div class="TodoSectionTitle" display: flex>
+    <p class="TodoSectionTitle-text"><%=section_title%></p>
+    <p class="TodoSectionTitle-remainingCount">
+    </p>
+  </div>
+  <ul>
+    <%@bill_amount=0%>
+    <%n=0%>
+    <% items.each do |user|%>
+         <li class="OrderItem">
+         <table class="tableformats">
+            <tr>
+              <td>
+                <%n=n+1%>
+                <%=n%> <%=user.first_name%>  <%=user.last_name%>
+              </td>
+              <td>
+                <%= link_to "See Stats", edit_report_path(user)%>
+              </td>
+            <tr>
+         </table>
+    <%end%>
+    </li>
+  </ul>
+  </section>

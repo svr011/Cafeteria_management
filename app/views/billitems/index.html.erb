@@ -1,0 +1,13 @@
+<main class="TodoPageMain">
+    <article>
+       <h1 class="Additems-title">Order Confirmed</h1>
+         <%= render partial:"billitem-section",locals: {
+                    section_title: "Ordered Items",
+                    items: Billitem.all
+                    }%>
+    <h3 class="Fooditem">Thanks for Ordering</h3>
+    <h3 class="Fooditem">Have a delicious food</h3>
+    <h3 class="Fooditem">STAY HOME STAY SAFE</h3>
+    </article>
+
+</main>

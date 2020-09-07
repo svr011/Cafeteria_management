@@ -1,0 +1,68 @@
+ <section class="TodoSection">
+  <div class="TodoSectionTitle" display: flex>
+    <p class="TodoSectionTitle-text"><%=section_title%></p>
+    <p class="TodoSectionTitle-remainingCount">
+    <%=users.count%>
+    </p>
+  </div>
+  <ul>
+  <%@bill_amount=0%>
+  <%n=0%>
+    <% users.each do |person|%>
+       <li class="OrderItem">
+         <label class="OrderItem-container">
+           <div class="OrderMenu">
+                      <%n=n+1%>
+                      <table class="tableformats">
+                        <tr>
+                          <td>
+                             <p class="Ordereditemname">
+                                <%=n%> Name : <%=person.first_name%>  <%=person.last_name%>
+                             </p>
+                          </td>
+                        <div>
+                            <td><p class="Ordereditemcost"> Role : <%=person.role%></p>
+                            </td>
+                            <td>
+                             <div class="Checklist">
+                                <div class="checker">
+                                    <%= form_with(url: "/viewusersbyowner/#{person.id}",method: "PATCH") do %>
+                                                  <input class="TodoItem-checkbox"
+                                                          type="checkbox"
+                                                          name="is_clerk"
+                                                          <%=person.is_clerk ? "checked":""%>
+                                                          onclick="this.form.submit()"
+                                                  />
+                                            <%="Clerk"%>
+                                    <%end%>
+
+                                </div>
+                            </td>
+                            <td>
+                              <div class="checkers",display:flex>
+                              <%= form_with(url: "/users/#{person.id}",method: "PATCH") do %>
+                                        <input class="TodoItem-checkbox"
+                                                type="checkbox"
+                                                name="is_clerk"
+                                                <%=person.is_owner ? "checked":""%>
+                                                onclick="this.form.submit()"
+                                                /><%="Owner"%>
+                              <%end%>
+            </div>
+                          </td>
+          </div>
+          <td>
+          <%= form_with(url: "/viewusersbyowner/#{person.id}",method: "delete") do %>
+                     <input type='image'
+                            class="Additem-delete"
+                            src="t.png"
+                            alt="Delete"
+                            height="20"
+                            width="20" >
+          <%end%>
+          </td>
+          </tr>
+          </table>
+        <%end%>
+    </ul>
+</section>

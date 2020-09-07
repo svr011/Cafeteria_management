@@ -1,0 +1,15 @@
+<main class="TodoPageMain">
+    <article>
+      <%= link_to "Sign-Out",destroy_session_path,method: "delete",class:"Signoutdelete"%>
+        <%= form_with(url: "/ownerhome",method: "GET") do %>
+                     <input type='button'  value="Back" class="Processorder"
+                     alt="Add items" onClick="this.form.submit()"   >
+                     <%end%>
+
+       <h1 class="Additems-title">Users Registered with CAFETERIA</h1>
+         <%= render partial:"viewuser-section",locals: {
+                    section_title: "List Of Users : ",
+                    users: User.all
+                    }%>
+    </article>
+</main>

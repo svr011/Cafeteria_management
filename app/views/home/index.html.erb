@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("idli.jpg");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+</style>
+<body>
+<div class="w3-top">
+        <div class="w3-row w3-padding w3-black">
+              <div class="w3-col s3">
+                      <%=link_to "HOME","#",class:"w3-button w3-block w3-black"%>
+              </div>
+              <div class="w3-col s3">
+                      <%=link_to "ABOUT","#about",class:"w3-button w3-block w3-black"%>
+              </div>
+              <div class="w3-col s3">
+                      <%=link_to "LOGIN/SIGN UP","#menu",class:"w3-button w3-block w3-black"%>
+              </div>
+              <div class="w3-col s3">
+                      <%=link_to "WHERE TO FIND US","#where",class:"w3-button w3-block w3-black"%>
+             </div>
+          </div>
+</div>
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+            <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+                      <span class="w3-tag">Open from 6am to 5pm</span>
+            </div>
+            <div class="w3-display-middle w3-center">
+                      <span class="w3-text-white" style="font-size:90px">the<br>Cafeteria</span>
+            </div>
+</header>
+<div class="w3-sand w3-grayscale w3-large">
+        <div class="w3-container" id="about">
+                <div class="w3-content" style="max-width:700px">
+                            <h5 class="w3-center w3-padding-64">
+                              <span class="w3-tag w3-wide">ABOUT THE CAFE
+                              </span>
+                            </h5>
+                          <p>In addition to our full espresso, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.
+                            We do encourage cash on delivery for customer convenience.
+                          </p>
+                    <div class="w3-panel w3-leftbar w3-light-grey">
+                                    <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
+                    </div>
+                    <img src="vada.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
+                          <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>
+                 </div>
+          </div>
+<div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">LOGIN</span></h5>
+      <div class="Arrangecontent">
+        <br/>
+        <br/>
+        <h3 class="Home-authenticate">
+                If you are a new user,
+         <%= form_with(url: "/users/new",method: "GET") do %>
+                <input type='button'
+                       value="Sign Up Here "
+                       class="buttonglower"
+                       alt="Add items"
+                       onClick="this.form.submit()">
+                <%end%>
+        </h3>
+        <h3 class="Home-authenticate">
+                If you are an existing user,
+        </h3>
+            <%= form_with(url: "/signin",method: "GET") do %>
+                  <input type='button'
+                         value="Sign In Here"
+                         class="buttonglower"
+                         alt="Add items"
+                         onClick="this.form.submit()">
+                   <%end%>
+        </div>
+    </div>
+</div>
+<div class="w3-container" id="where" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">WHERE TO FIND US</span></h5>
+    <p>15, Maruthi Nagar Main Rd,Old Madiwala, Maruti Nagar,1st Stage, BTM Layout 1,
+        Bengaluru, Karnataka 560068
+    </p>
+  </div>
+</div>
+</div>
+</body>
+</html>

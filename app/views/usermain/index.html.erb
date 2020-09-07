@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+body{
+  background-image:url("/um1.png");
+background-size:100% 100%;
+background-repeat:no-repeat;
+height:100%;
+ background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<body>
+<%= link_to "Sign-Out",destroy_session_path,method: "delete",class:"Linker"%>
+<div class="Justifycontent">
+<div class="Usermaincss">
+
+<div class="Breakfastitemborder">
+<div class="Flip-flex">
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="idli.jpg" alt="Avatar" style="width:100px;height:100px;">
+    </div>
+    <div class="flip-card-back">
+      <p>Idli</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="vada.png" alt="Avatar" style="width:100px;height:100px">
+    </div>
+    <div class="flip-card-back">
+      <p>Vada</p>
+    </div>
+  </div>
+</div>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="pongal.png" alt="Avatar" style="width:100px;height:100px">
+    </div>
+    <div class="flip-card-back">
+      <p>Pongal</p>
+    </div>
+  </div>
+</div>
+</div>
+<div class="Flip-flex">
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="disa.jpg" alt="Avatar" style="width:100px;height:100px;">
+    </div>
+    <div class="flip-card-back">
+      <p>Dosa</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="chapathi.png" alt="Avatar" style="width:100px;height:100px">
+    </div>
+    <div class="flip-card-back">
+      <p>Chapathi</p>
+    </div>
+  </div>
+</div>
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="puri.jpg" alt="Avatar" style="width:100px;height:100px">
+    </div>
+    <div class="flip-card-back">
+      <p>Puri</p>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="Flip-flex">
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="lemonrice.png" alt="Avatar" style="width:100px;height:100px;">
+    </div>
+    <div class="flip-card-back">
+      <p>Lemon Rice</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="upma.png" alt="Avatar" style="width:100px;height:100px">
+    </div>
+    <div class="flip-card-back">
+      <p>Upma</p>
+    </div>
+  </div>
+</div>
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="disa.jpg" alt="Avatar" style="width:100px;height:100px">
+    </div>
+    <div class="flip-card-back">
+      <p>Egg Dosa</p>
+    </div>
+  </div>
+</div>
+</div>
+<br/>
+<div class="Usermain-buttons">
+ <%= form_with(url: "/menuitems",method: "POST") do %>
+                <div class="Additem">
+                    <%=label_tag 'Select Menu Type  ', nil, class: 'Additemlabel'%>
+                    <%= select_tag "menu", raw("<option>Breakfast</option><option>Lunch</option><option>Dinner</option>"), disabled:false , class:'Additem-cost'%>
+                </div>
+                     <%Menuitem.delete_all%>
+                         <input type='button'
+                                value="Order Items"
+                                class="buttonglower"
+                                  alt="Add items"
+                             onClick="this.form.submit()">
+    <%end%>
+  </div>
+  <br/>
+  <%= form_with(url: "/orders",method: "GET") do %>
+        <%Menuitem.delete_all%>
+        <input type='button'
+              value="View Your Order Status"
+              class="Processorder"
+                alt="Add items"
+            onClick="this.form.submit()">
+    <%end%>
+</div>
+</div>
+</div>
+</body>
+</html>

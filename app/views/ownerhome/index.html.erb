@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+      body{
+           background-image:url("/bg1.jpg");
+           background-size:100% 100%;
+           background-repeat:no-repeat;
+           height:100%;
+           background-position: center;
+           background-repeat: no-repeat;
+           background-size: cover;
+          }
+</style>
+</head>
+<body>
+<main class="TodoPageMain">
+    <article>
+        <div class="OwnerLinkers">
+            <%= link_to "Sign-Out",destroy_session_path,method: "delete",class:"Linker"%>
+            <p><%=link_to  "View Orders",orderreceived_index_path,class:"Linker" %></p>
+            <p><%=link_to  "View Users",viewusersbyowner_index_path,class:"Linker" %></p>
+            <p><%=link_to  "View Stats",reports_path,class:"Linker" %></p>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <%= form_with(url: "/usermain",method: "GET") do %>
+                     <input type='button'
+                            value="Make an Offline Order"
+                            class="Processorders"
+                            alt="Add items"
+                            onClick="this.form.submit()"   >
+        <%end%>
+        <div class="Breakfast">
+            <p>“One cannot think well, love well, sleep well, if one has not dined well.”</p>
+           <p><%=link_to  "Add Items to Inventory",additems_path,class:"Linker" %></p>
+        </div>
+  </article>
+</main>
+</body>
+</html>

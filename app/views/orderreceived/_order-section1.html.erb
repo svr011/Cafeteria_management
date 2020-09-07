@@ -1,0 +1,51 @@
+ <section class="TodoSection">
+  <div class="TodoSectionTitle" display: flex>
+    <p class="TodoSectionTitle-text"><%=section_title%></p>
+    <p class="TodoSectionTitle-remainingCount">
+    </p>
+  </div>
+  <ul>
+      <%@bill_amount=0%>
+      <%n=0%>
+      <%= form_with(url: "/ownerhome",method: "GET") do %>
+                      <input type='button'
+                             value="Back"
+                             class="Processorder"
+                             alt="Add items"
+                             onClick="this.form.submit()"   >
+      <%end%>
+    <% items.each do |item|%>
+       <li class="OrderItem">
+         <label class="OrderItem-container">
+           <div class="OrderMenu">
+             <%orderedby = User.find(item.user_id)%>
+             <% if orderedby.role=="Owner"%>
+             <%if !item.confirmed%>
+                      <%@bill_amount= @bill_amount + item.item_cost * item.quantity%>
+                      <%n=n+1%>
+                      <table class="tableformats">
+                          <tr>
+                              <td>
+                                  <p class="Ordereditemname">  <%=n%> Item Name : <%=item.item_name%></p>
+                              </td>
+                              <td>
+                                  <p class="Ordereditemcost"> Item Cost (<%=item.quantity%>*<%=item.item_cost%> ) : Rs <%=item.item_cost * item.quantity%>/-</p>
+                              </td>
+                          </div>
+                  <div class="Menu">
+                        <td>
+                            <%= form_with(url: "/orders/#{item.id}",method: "PUT") do %>
+                                  <input class="TodoItem-checkbox"
+                                            type="checkbox"
+                                            name="confirmed"
+                                            <%=item.confirmed ? "checked":""%>
+                                            onclick="this.form.submit()"
+                                            /><%="Confirm Order"%></td></tr>
+                            <%end%>
+                  </div>
+          </table>
+          <%end%>
+        <%end%>
+      <%end%>
+  </ul>
+</section>

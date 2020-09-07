@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{
+            background-image:url(".jpg");
+            background-size:100% 180%;
+            background-repeat:no-repeat;
+        }
+    </style>
+</head>
+<body>
+        <main class="TodoPageMain">
+             <article>
+                    <%= link_to "Sign-Out",
+                        destroy_session_path,
+                        method: "delete",
+                        class:"Signout"%>
+                    <h1 class="Additems-title">Enter Menu Items </h1>
+                    <div class="Addmain">
+                             <%= form_with(url: "additems#create", method: "post") do %>
+                                    <div class="Additem">
+                                            <%=label_tag 'Enter Item Name  ',
+                                                    nil, class: 'Additemlabel'%>
+                                            <%= text_field_tag(:item_name,nil,
+                                                            class:'Additem-Name',
+                                                             placeholder: "Add Item Name ")%>
+                                    </div>
+                                    <div class="Additem">
+                                            <%=label_tag 'Enter Item Description  ',
+                                                    nil, class: 'Additemlabel'%>
+                                            <%= text_field_tag(:item_description,nil,
+                                                            class:'Additem-description',
+                                                            placeholder: "Add Item Description" )%>
+                                    </div>
+                                    <div class="Additem">
+                                            <%=label_tag 'Enter Item Cost  ',
+                                                    nil, class: 'Additemlabel'%>
+                                            <%= text_field_tag(:item_cost,nil,
+                                                            class:'Additem-cost',
+                                                            placeholder: "Add Item cost in rupees" )%>
+                                    </div>
+                                    <div class="Additem">
+                                            <%=label_tag 'Select Menu Type  ', nil,
+                                                            class: 'Additemlabel'%>
+                                            <%= select_tag "menutype", raw("<option>Breakfast</option>
+                                                                            <option>Lunch</option>
+                                                                            <option>Dinner</option>"),
+                                                            disabled:false , class:'Additem-cost'%>
+                                    </div>
+                                    <%= button_tag('Proceed to Add Items',
+                                                    type:"Submit",
+                                                    class:"Additem-Button")%>
+
+                            <%end%>
+                        <%= link_to "<-Go Back",
+                                ownerhome_index_path,
+                                class:"AddItem-Goback" %>
+                    </div>
+                    <h3 class="Fooditem">
+                            Have a delicious food
+                    </h3>
+                    <%= render partial:"additem-section",locals: {
+                                    section_title: "Items in the list",
+                                    items: Additems.all
+                    }%>
+            </article>
+        </main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<main class="TodoPageMain">
+    <article>
+      <%= link_to "Sign-Out",destroy_session_path,method: "delete"%>
+       <h1 class="Additems-title">Orders Of the Day</h1>
+         <%= render partial:"order-section",locals: {
+                    section_title: "Online Orders by Customers : ",
+                    items: Order.all
+                    }%>
+                     <%= render partial:"order-section1",locals: {
+                    section_title: "Offline Orders by Owner/Clerk : ",
+                    items: Order.all
+                    }%>
+    <h3 class="Fooditem">Have a delicious food</h3>
+    </article>
+</main>
